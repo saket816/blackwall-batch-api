@@ -236,6 +236,7 @@ async def process_batch(batch_id: str):
                 # Batch was deleted mid-run
                 return
             await process_single_coord(client, batch_id, coord_key)
+            await asyncio.sleep(5)  # 5 second gap between each submission
 
     # ── Mark batch complete ──
     stats = get_batch_stats(batch)
